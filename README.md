@@ -14,7 +14,7 @@
 docker build . -t appbuilder
 
 # Run
-docker run -p 5000:4000 -d appbuilder
+docker run -p 4010:4000 -d appbuilder
 
 ## Running in Development
 

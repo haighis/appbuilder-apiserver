@@ -9,13 +9,15 @@
 - If you run into issues with compiling elixir run `mix local.rebar`
 - Run `iex -S mix phx.server` or `mix phx.server`
 
-
 # Build
 docker build . -t appbuilder
 
 # Run
-docker run -p 4010:4000 -d appbuilder
-
+docker run -p 4010:4000 -e DB_HOSTNAME="host.docker.internal" -e DB_NAME="mngo-builder" -d appbuilder
+docker run -p 4010:4000 -e DATABASE_URL="ecto://postgres:postgres@host.docker.internal:5433/mngo-builder" -e SECRET_KEY_BASE=replaceme -d appbuilder
+# Environment Variables
+- DATABASE_URL - ecto://postgres:postgres@host.docker.internal:5433/mngo-builder
+- SECRET_KEY_BASE - mix phx.gen.secret
 ## Running in Development
 
 ```

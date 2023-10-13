@@ -10,11 +10,23 @@
 - Run `iex -S mix phx.server` or `mix phx.server`
 
 # Build
+```
 docker build . -t appbuilder
+```
+
+# Tag
+```
+docker tag docker.io/library/appbuilder  appbuilder:1.0.1
+```
 
 # Run
+```
 docker run -p 4010:4000 -e DB_HOSTNAME="host.docker.internal" -e DB_NAME="mngo-builder" -d appbuilder
 docker run -p 4010:4000 -e DATABASE_URL="ecto://postgres:postgres@host.docker.internal:5433/mngo-builder" -e SECRET_KEY_BASE=replaceme -d appbuilder
+
+docker run -p 4010:4000 -e DATABASE_URL="ecto://postgres:postgres@host.docker.internal:5433/mngo-builder" -e SECRET_KEY_BASE=nZVAehqmsGtu8SPZdXCktblF56H6EcvjHLTIZAqbugCeWDixwqdC+A2bEzPVN5QV -d appbuilder:1.0.1
+```
+
 # Environment Variables
 - DATABASE_URL - ecto://postgres:postgres@host.docker.internal:5433/mngo-builder
 - SECRET_KEY_BASE - mix phx.gen.secret

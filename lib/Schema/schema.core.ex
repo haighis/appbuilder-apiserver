@@ -22,9 +22,9 @@ defmodule Core.Schema do
         result
     end
 
-    def update(id, title, type) do
+    def update(id, title, type, parent, schema, layout) do
         setting = Appbuilder.Repo.get!(Appbuilder.Model.Schema, id)
-        setting = Ecto.Changeset.change setting, title: title, type: type
+        setting = Ecto.Changeset.change setting, title: title, type: type, parent: parent, schema: schema, layout: layout
         case Appbuilder.Repo.update setting do
         {:ok, struct}       -> IO.puts "i updated " # Updated with success
         {:error, changeset} -> # Something went wrong
@@ -38,7 +38,6 @@ defmodule Core.Schema do
 
     def get_all() do
         query = from(s in Appbuilder.Model.Schema, order_by: s.id)
-        IO.puts "john and ben"
         Appbuilder.Repo.all(query)
         #Builder.Repo.all(Builder.Model.Schema)
     end

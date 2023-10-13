@@ -21,7 +21,8 @@ defmodule AppbuilderWeb.SchemaController do
     "schema" => schema,
     "layout" => layout
   } = params) do
-    Core.Schema.update key,title,type
+    # id, title, type, parent, schema, layout
+    Core.Schema.update key,title,type,parent,schema,layout
     #GenServer.cast(:schema_gen_server,{:update,key,title,type})
     send_resp(conn, :no_content, "")
   end

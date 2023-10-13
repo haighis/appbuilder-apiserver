@@ -11,6 +11,11 @@ config :appbuilder,
   ecto_repos: [Appbuilder.Repo],
   generators: [binary_id: true]
 
+  config :cors_plug,
+  origin: ["*"],
+  max_age: 86400,
+  methods: ["GET", "POST", "PUT", "DELETE"]
+
 # Configures the endpoint
 config :appbuilder, AppbuilderWeb.Endpoint,
   url: [host: "localhost"],

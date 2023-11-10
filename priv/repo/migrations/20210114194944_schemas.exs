@@ -6,8 +6,8 @@ defmodule Builder.Repo.Migrations.CreateSchemas do
       add :title, :string
       add :type, :string
       add :parent, :string
-      add :schema, :string
-      add :layout, :string
+      add :schema, :text
+      add :layout, :text
       timestamps()
     end
   end

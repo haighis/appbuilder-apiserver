@@ -47,7 +47,7 @@ iex -S mix phx.server
 
 # Postgres Database as a docker container
 
-- `docker run --name pixel-auth-postgres -p 5433:5432 -v postgres-data:/var/lib/postgresql/data -e POSTGRES_PASSWORD=postgres -d postgres`
+- `docker run --name application-platform-postgres -p 5433:5432 -v postgres-data:/var/lib/postgresql/data -e POSTGRES_PASSWORD=postgres -d postgres`
 
 # Postgres Database Client with PGAdmin as a docker container
 
